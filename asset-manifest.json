@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/goit-react-woolf-hw-05-movies/static/css/main.e6c13ad2.css",
+    "main.js": "/goit-react-woolf-hw-05-movies/static/js/main.69e59708.js",
+    "index.html": "/goit-react-woolf-hw-05-movies/index.html",
+    "main.e6c13ad2.css.map": "/goit-react-woolf-hw-05-movies/static/css/main.e6c13ad2.css.map",
+    "main.69e59708.js.map": "/goit-react-woolf-hw-05-movies/static/js/main.69e59708.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.69e59708.js"
+  ]
+}
