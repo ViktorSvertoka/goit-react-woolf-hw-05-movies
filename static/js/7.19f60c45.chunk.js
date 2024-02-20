@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoit_react_woolf_hw_05_movies=self.webpackChunkgoit_react_woolf_hw_05_movies||[]).push([[7],{7:(e,s,t)=>{t.r(s),t.d(s,{List:()=>i});var o,_=t(528);const i=t(197).Ay.ul(o||(o=(0,_.A)(["\n  list-style-type: none;\n"])))}}]);
+//# sourceMappingURL=7.19f60c45.chunk.js.map
