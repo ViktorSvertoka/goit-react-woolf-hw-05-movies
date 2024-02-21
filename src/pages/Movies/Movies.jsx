@@ -9,20 +9,17 @@ const Movies = () => {
   const [loading, setLoading] = useState(false);
   const [noMoviesText, setNoMoviesText] = useState(false);
 
-  const searchMovies = queryMovie => {
-    setLoading(true);
-
-    fetchSearchByKeyword(queryMovie)
-      .then(searchResults => {
-        setSearchFilms(searchResults);
-        setNoMoviesText(searchResults.length === 0);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+  const searchMovies = async queryMovie => {
+    try {
+      setLoading(true);
+      const searchResults = await fetchSearchByKeyword(queryMovie);
+      setSearchFilms(searchResults);
+      setNoMoviesText(searchResults.length === 0);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -30,9 +27,9 @@ const Movies = () => {
       <Form searchMovies={searchMovies} />
       {loading && <Loader />}
       {noMoviesText && (
-        <p>There is no movies with this request. Please, try again</p>
+        <p>There are no movies with this request. Please, try again</p>
       )}
-      {searchFilms && <EditorList films={searchFilms} />}
+      {searchFilms.length > 0 && <EditorList films={searchFilms} />}
     </main>
   );
 };
