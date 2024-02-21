@@ -10,28 +10,25 @@ const Reviews = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchReviewsFilms = () => {
-      setLoading(true);
-
-      fetchReviews(movieId)
-        .then(reviews => {
-          setReviews(reviews);
-        })
-        .catch(error => {
-          console.log(error);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+    const fetchMovieReviews = async () => {
+      try {
+        setLoading(true);
+        const fetchedReviews = await fetchReviews(movieId);
+        setReviews(fetchedReviews);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
     };
 
-    fetchReviewsFilms();
+    fetchMovieReviews();
   }, [movieId]);
 
   return (
     <>
       {loading && <Loader />}
-      {reviews.length !== 0 && (
+      {reviews.length !== 0 ? (
         <div>
           <List>
             {reviews.map(review => (
@@ -42,8 +39,7 @@ const Reviews = () => {
             ))}
           </List>
         </div>
-      )}
-      {reviews.length === 0 && (
+      ) : (
         <div>We don't have any reviews for this movie</div>
       )}
     </>
