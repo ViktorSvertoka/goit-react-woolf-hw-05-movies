@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import placeholder from '../../images/placeholder.png';
+import noImage from '../../images/noImage.png';
 
 export const List = styled.ul`
   list-style-type: none;
@@ -23,7 +23,7 @@ export const MovieLink = styled(Link)`
     background-image: ${props =>
       props.cover
         ? `url('https://image.tmdb.org/t/p/w500/${props.cover}')`
-        : `url(${placeholder})`};
+        : `url(${noImage})`};
 
     background-size: cover;
     width: 400px;

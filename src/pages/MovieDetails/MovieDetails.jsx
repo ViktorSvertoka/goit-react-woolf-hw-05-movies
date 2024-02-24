@@ -9,7 +9,7 @@ import {
   LinkInfo,
   Button,
 } from './MovieDetails.styled';
-import placeholder from '../../images/placeholder.png';
+import noImage from '../../images/noImage.png';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -83,7 +83,7 @@ const MovieDetails = () => {
           src={
             poster_path
               ? `https://image.tmdb.org/t/p/w500${poster_path}`
-              : `${placeholder}`
+              : `${noImage}`
           }
           alt={original_title}
         />
