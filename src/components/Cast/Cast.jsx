@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { fetchActors } from 'services/tmbdApi';
 import Loader from 'components/Loader/Loader';
 import { List, Text } from './Cast.styled';
+import noImage from '../../images/noImage.png';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -28,7 +29,7 @@ const Cast = () => {
   return (
     <div>
       {loading && <Loader />}
-
+      <h2 className="text-2xl pb-4 font-bold pt-4">Movie Cast</h2>
       <List>
         {actors.map(({ id, profile_path, original_name, name, character }) => (
           <li key={id}>
@@ -38,7 +39,7 @@ const Cast = () => {
               src={
                 profile_path
                   ? `https://image.tmdb.org/t/p/w500${profile_path}`
-                  : `https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg`
+                  : `${noImage}`
               }
               alt={original_name}
             />

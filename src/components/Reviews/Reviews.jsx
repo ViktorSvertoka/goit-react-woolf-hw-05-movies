@@ -30,6 +30,7 @@ const Reviews = () => {
       {loading && <Loader />}
       {reviews.length !== 0 ? (
         <div>
+          <h2 className="text-2xl pb-4 font-bold pt-4">Movie Reviews</h2>
           <List>
             {reviews.map(review => (
               <li key={review.id}>
