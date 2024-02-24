@@ -10,6 +10,10 @@ export const Item = styled.li`
   font-weight: 600;
   font-size: 18px;
   margin-bottom: 10px;
+
+  &:hover {
+    color: #4f46e5;
+  }
 `;
 
 export const MovieLink = styled(Link)`
@@ -32,5 +36,6 @@ export const MovieLink = styled(Link)`
     top: 20%;
     left: 50%;
     z-index: 1;
+    color: #4f46e5;
   }
 `;

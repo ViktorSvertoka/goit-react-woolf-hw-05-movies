@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import EditorList from 'pages/MovieList/MovieList';
+import MovieList from 'pages/MovieList/MovieList';
 import { fetchTrending } from 'services/tmbdApi';
 import Loader from 'components/Loader/Loader';
 
@@ -27,7 +27,7 @@ const Home = () => {
       <h1 className="pb-10 mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
         Trending today
       </h1>
-      <EditorList films={films} />
+      <MovieList films={films} />
 
       {loading && <Loader />}
     </main>

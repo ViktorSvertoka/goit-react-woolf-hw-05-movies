@@ -18,11 +18,12 @@ export const Header = styled.header`
 export const Link = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
-  padding: 14px;
-
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-weight: 600;
   font-size: 22px;
   color: #191d1e;
+  margin-right: 20px;
 
   &.active {
     color: #4f46e5;
