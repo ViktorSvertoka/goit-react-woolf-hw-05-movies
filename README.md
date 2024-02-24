@@ -63,3 +63,5 @@
 ### Фінальний результат
 
 ![screencapture](./assets/screencapture.png)
+
+![screencapture](./assets/screencapture2.png)
