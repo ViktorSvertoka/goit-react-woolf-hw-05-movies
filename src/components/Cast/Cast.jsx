@@ -34,6 +34,7 @@ const Cast = () => {
           <li key={id}>
             <img
               width="200px"
+              height="300px"
               src={
                 profile_path
                   ? `https://image.tmdb.org/t/p/w500${profile_path}`

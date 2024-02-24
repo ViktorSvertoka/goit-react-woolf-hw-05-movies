@@ -9,6 +9,7 @@ import {
   LinkInfo,
   Button,
 } from './MovieDetails.styled';
+import placeholder from '../../images/placeholder.png';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -50,6 +51,26 @@ const MovieDetails = () => {
     original_title,
   } = movieInfo;
 
+  const companiesList = movieInfo.production_companies?.map(
+    ({ id, logo_path, name }) =>
+      logo_path && (
+        <li key={id}>
+          {logo_path && (
+            <img
+              src={`https://image.tmdb.org/t/p/w500${logo_path}`}
+              alt={name}
+              style={{
+                maxHeight: 50,
+                maxWidth: 200,
+                marginRight: 30,
+                marginTop: 10,
+              }}
+            />
+          )}
+        </li>
+      )
+  );
+
   return (
     <>
       <Link to={location.state?.from ?? '/'}>
@@ -62,30 +83,39 @@ const MovieDetails = () => {
           src={
             poster_path
               ? `https://image.tmdb.org/t/p/w500${poster_path}`
-              : `https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg`
+              : `${placeholder}`
           }
           alt={original_title}
         />
         <div>
-          <h1>
+          <h1 className="text-2xl pb-4">
             {title} ({release_date.slice(0, 4)})
           </h1>
-          <p>User score: {popularity}</p>
-          <h2>Overview</h2>
-          <p>{overview}</p>
-          <h2>Genres</h2>
+          <p className="pb-4">User score: {popularity}</p>
+          <h2 className="text-2xl pb-4">Overview</h2>
+          <p className="pb-4">{overview}</p>
+          <h2 className="text-2xl pb-4">Genres</h2>
           <List>
             {genres.map(genre => (
-              <li key={genre.id}>{genre.name}</li>
+              <li className="pb-4" key={genre.id}>
+                {genre.name}
+              </li>
             ))}
           </List>
+
+          {companiesList[0] !== null && companiesList.length > 0 && (
+            <>
+              <h2 className="text-2xl pb-4">Production companies</h2>
+              <ul className="flex">{companiesList}</ul>
+            </>
+          )}
         </div>
       </Container>
 
       <hr />
 
       <div>
-        <h3>Additional information</h3>
+        <h3 className="text-2xl pb-4">Additional information</h3>
         <ListInfo>
           <li>
             <LinkInfo to="cast">Cast</LinkInfo>
