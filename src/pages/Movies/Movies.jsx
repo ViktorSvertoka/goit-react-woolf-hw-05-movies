@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Loader from 'components/Loader/Loader';
-import EditorList from 'pages/MovieList/MovieList';
+import EditorList from 'components/MovieList/MovieList';
 import Form from 'components/Form/Form';
 import { fetchSearchByKeyword } from 'services/tmbdApi';
 
